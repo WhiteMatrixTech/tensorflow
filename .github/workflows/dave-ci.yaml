@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - imageBuildTest
+      - buildArmImage
     # Publish semver tags as releases.
     tags:
       - 'v*.*.*'
