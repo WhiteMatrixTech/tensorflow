@@ -90,7 +90,7 @@ jobs:
         #          TARGETOS: linux
         #          TARGETARCH: arm64
         with:
-          context: .
+          context: ci/official/containers/linux_arm64
           file: ci/official/containers/linux_arm64/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: dave917/tensorflow:latest
