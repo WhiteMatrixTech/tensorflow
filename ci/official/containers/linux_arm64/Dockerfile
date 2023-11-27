@@ -67,6 +67,7 @@ FROM devel as jax
 RUN /setup.packages.sh /cuda.packages.txt
 COPY jax.requirements.txt /devel.requirements.txt
 COPY setup.python.sh /setup.python.sh
+RUN /setup.python.sh python3.8 devel.requirements.txt
 RUN /setup.python.sh python3.9 devel.requirements.txt
 RUN /setup.python.sh python3.10 devel.requirements.txt
 RUN /setup.python.sh python3.11 devel.requirements.txt
@@ -76,9 +77,10 @@ FROM devel as tf
 # Setup TF Python environment.
 COPY devel.requirements.txt /devel.requirements.txt
 COPY setup.python.sh /setup.python.sh
+RUN /setup.python.sh python3.8 devel.requirements.txt
 RUN /setup.python.sh python3.9 devel.requirements.txt
 RUN /setup.python.sh python3.10 devel.requirements.txt
 RUN /setup.python.sh python3.11 devel.requirements.txt
 RUN /setup.python.sh python3.12 devel.requirements.txt
 # "python3" commands by default run under 3.10
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
